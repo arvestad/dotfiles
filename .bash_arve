@@ -1,0 +1,67 @@
+
+EDITOR="emacs -nw -q"
+
+alias skitch="open -a Skitch"
+alias emacs="/usr/local/bin/emacs"
+
+alias ll="ls -l"
+alias lh="ls -lh"
+alias lf="ls -F"
+
+export HOMEBREW_GITHUB_API_TOKEN=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
+
+
+# Syntax highlighiting in the console
+function codecat()
+{
+   pygmentize -f terminal256  -g  "$1"
+}
+
+
+# Set the title in iTerm2 tabs
+function title ()
+{
+   TITLE=$*;
+   export PROMPT_COMMAND='echo -ne "\033]0;$TITLE\007"'
+}
+
+# RefSense-related
+#complete -C pmcomplete pmid2text pmid2www pmid2bibtex
+#complete -o default -C journalcomplete pubmed pmsearch
+#complete -C taxcomplete taxonomy
+complete -C refsense_complete pmsearch
+export PERL5LIB=$PERL5LIB:~/lib/refsense
+
+
+# make completion
+# My attempt: function complete_make () {grep $1":" *akefile | cut -f 1 -d:}
+# From the Net: 
+complete_make()
+{
+local IFS=$'\n'
+COMPREPLY=(
+$( grep -h "^${COMP_WORDS[$COMP_CWORD]:-.}.*:" [mM]akefile |
+cut -d: -f1 )
+)
+}
+complete -F complete_make make
+
+
+# For the site transfer.sh (go to http://transfer.sh!)
+upload() { curl --upload-file $1 https://transfer.sh/$(basename $1); echo; }
+download() { F=`basename $1`; curl $1 > $F; echo "New file: " $F;  }
+
+# PATHS
+export PATH=~/bin:$PATH
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+
+### This is _probably_ old:
+# PATH="/Users/arve/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/Users/arve/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/Users/arve/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/Users/arve/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/Users/arve/perl5"; export PERL_MM_OPT;
+
