@@ -8,7 +8,7 @@ alias ll="ls -l"
 alias lh="ls -lh"
 alias lf="ls -F"
 
-export HOMEBREW_GITHUB_API_TOKEN=DUMMY
+# export HOMEBREW_GITHUB_API_TOKEN=DUMMY
 
 
 # Syntax highlighiting in the console
