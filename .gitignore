@@ -1,0 +1,6 @@
+# This file needs to be activated using
+#    git config --global core.excludesfile ~/.gitignore
+# Or, by relying on the core.excludesfile directive in .gitconfig!
+
+# Emacs
+*~

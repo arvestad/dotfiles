@@ -28,5 +28,6 @@
 
 [core]
 	editor = emacs -nw
+	excludesFile = ~/.gitignore
 [init]
 	defaultBranch = main
