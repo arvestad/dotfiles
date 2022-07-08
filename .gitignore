@@ -4,3 +4,11 @@
 
 # Emacs
 *~
+
+# MacOS
+.DS_Store
+
+# LaTeX
+.toc
+.aux
+.log
