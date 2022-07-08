@@ -9,6 +9,6 @@
 .DS_Store
 
 # LaTeX
-.toc
-.aux
-.log
+*.toc
+*.aux
+*.log
