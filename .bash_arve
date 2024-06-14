@@ -2,7 +2,6 @@
 EDITOR="emacs -nw -q"
 
 alias skitch="open -a Skitch"
-alias emacs="/usr/local/bin/emacs"
 
 alias ll="ls -l"
 alias lh="ls -lh"
@@ -15,6 +14,21 @@ alias lf="ls -F"
 function codecat()
 {
    pygmentize -f terminal256  -g  "$1"
+}
+
+
+# Simplify Conda and project usage
+function session {
+   if [ $# -ne 1 ]; then
+      echo "Usage: session <conda_env_name>"
+   else
+      conda activate $1
+      if [ $? -gt 0 ]; then
+          conda info --envs
+      else
+         title $1
+      fi
+   fi
 }
 
 
