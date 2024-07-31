@@ -14,3 +14,4 @@ is based on experience. Thanks for asking.
 * .bash_arve, to be included by .bash_profile
 * .gitconfig
 * .gitignore
+* .emacs

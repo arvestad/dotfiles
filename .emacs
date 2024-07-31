@@ -13,8 +13,8 @@
  '(gud-gdb-command-name "gdb --annotate=1")
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
- '(package-selected-packages (quote (auctex)))
- '(safe-local-variable-values (quote ((TeX-master . t)))))
+ '(package-selected-packages '(auctex))
+ '(safe-local-variable-values '((ispell-local-dictionary . american) (TeX-master . t))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -57,3 +57,4 @@
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
