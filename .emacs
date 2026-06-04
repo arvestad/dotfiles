@@ -14,7 +14,11 @@
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
  '(package-selected-packages '(auctex))
- '(safe-local-variable-values '((ispell-local-dictionary . american) (TeX-master . t))))
+ '(safe-local-variable-values
+   '((language . american)
+     (ispell-local-dictionary . american)
+     (TeX-master . t)))
+ '(sql-mysql-options '("--skip-ssl")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -36,6 +40,16 @@
 
 (setq-default fill-column 100)
 (put 'narrow-to-region 'disabled nil)
+
+;; C++ programming
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (c-set-style "stroustrup")
+            (setq c-basic-offset 4)))
+(add-hook 'c-mode-hook
+          (lambda ()
+            (c-set-style "stroustrup")
+            (setq c-basic-offset 4)))
 
 ;; Make input work on Mac
 (setq default-input-method "MacOSX")

@@ -67,7 +67,7 @@ download() { F=`basename $1`; curl $1 > $F; echo "New file: " $F;  }
 
 # PATHS
 export PATH=~/bin:$PATH
-
+export PATH=~/.local/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
