@@ -65,17 +65,13 @@ complete -F complete_make make
 upload() { curl --upload-file $1 https://transfer.sh/$(basename $1); echo; }
 download() { F=`basename $1`; curl $1 > $F; echo "New file: " $F;  }
 
+
+### Get onto roos
+gren() {
+  ssh -t arve@roos "cd projects/gren && conda activate gren && exec \$SHELL"
+}
+
 # PATHS
 export PATH=~/bin:$PATH
 export PATH=~/.local/bin:$PATH
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
-
-### This is _probably_ old:
-# PATH="/Users/arve/perl5/bin${PATH:+:${PATH}}"; export PATH;
-# PERL5LIB="/Users/arve/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-# PERL_LOCAL_LIB_ROOT="/Users/arve/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-# PERL_MB_OPT="--install_base \"/Users/arve/perl5\""; export PERL_MB_OPT;
-# PERL_MM_OPT="INSTALL_BASE=/Users/arve/perl5"; export PERL_MM_OPT;
 
